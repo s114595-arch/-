@@ -1,6 +1,3 @@
-請生成一個靜態網頁，將所有程式碼都寫在單一一個 .html 檔中，這個網站的功能是
-
-利用滑鼠控制視角、鍵盤（WASD）前後左右移動。玩家在一個封閉的 3D 空間（如地下道、廢棄醫院、洋房）裡尋找線索、解開機關或躲避怪物。 
 
 
 <!DOCTYPE html>
@@ -663,7 +660,11 @@
                 }
 
                 // 死亡判定
-                if (monsterPos.distanceTo(playerPos) < 1.6) {
+               const dx = monsterPos.x - playerPos.x;
+const dz = monsterPos.z - playerPos.z;
+const flatDist = Math.sqrt(dx * dx + dz * dz);
+if (flatDist < 1.6) {
+
                     gameState.isGameOver = true;
                     isGameRunning = false;
                     document.exitPointerLock();
@@ -680,5 +681,7 @@
     </script>
 </body>
 </html>
+
+
 
 
